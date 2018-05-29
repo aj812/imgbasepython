@@ -4,8 +4,7 @@ from django.contrib import admin
 
 api_urls = [
     url(r'^users/', include('users.urls', namespace='users')),
-    url(r'^media/', include('media.urls')),
-
+    url(r'^media/', include('media.urls', namespace='media'))
 ]
 
 urlpatterns = [
