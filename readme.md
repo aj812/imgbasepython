@@ -1,3 +1,3 @@
-##imgBase Django Server
+## Title: imgBase Django Server
 
-Using PostgreSQL, serve user and media data
+Using PostgreSQL & the Django Python web framework to serve user and media data
