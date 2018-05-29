@@ -20,6 +20,7 @@ class UserRegistrationAPIView(CreateAPIView):
         token, created = Token.objects.get_or_create(user=user)
         data = serializer.data
         data["token"] = token.key
+        print('TOKEN: ', token.key)
 
         headers = self.get_success_headers(serializer.data)
         return Response(data, status=status.HTTP_201_CREATED, headers=headers)
