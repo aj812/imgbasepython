@@ -13,7 +13,6 @@ class Media(models.Model):
     mediatype = models.CharField(_("MediaType"), max_length=255)
     path = models.CharField(_("Path"), max_length=255)
     tags = ArrayField(ArrayField(models.CharField(max_length = 5000)))
-    # done = models.BooleanField(_("Done"), default=False)
     date_created = models.DateTimeField(_("Date Created"), auto_now_add=True)
 
     class Meta:

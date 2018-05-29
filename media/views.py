@@ -6,7 +6,7 @@ from media.permissions import UserIsOwnerMedia
 from media.serializers import MediaSerializer
 
 
-class MediaListCreateAPIView(ListCreateAPIView):
+class MediaCreateAPIView(ListCreateAPIView):
     serializer_class = MediaSerializer
 
     def get_queryset(self):
