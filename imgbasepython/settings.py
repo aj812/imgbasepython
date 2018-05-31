@@ -107,12 +107,13 @@ WSGI_APPLICATION = 'imgbasepython.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'imgbase',
         'USER': 'imgbaseuser',
         'PASSWORD': '',
         'HOST': '0.0.0.0',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
