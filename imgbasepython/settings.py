@@ -14,9 +14,9 @@ import os
 
 import dj-database-url # add this to the top of your file
 
-db_from_env = dj_database_url.config()
- DATABASES[‘default’].update(db_from_env)
- 
+# db_from_env = dj_database_url.config()
+#  DATABASES[‘default’].update(db_from_env)
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -155,6 +155,9 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+
+db_from_env = dj_database_url.config()
+DATABASES[‘default’].update(db_from_env)
 
 # # Heroku: Update database configuration from $DATABASE_URL.
 # import dj_database_url
