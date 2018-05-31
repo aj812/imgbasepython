@@ -15,4 +15,4 @@ class MediaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Media
-        fields = ("user", "mediatype", "path", "tags", "date_created")
+        fields = ("id", "user", "mediatype", "path", "tags", "date_created")
