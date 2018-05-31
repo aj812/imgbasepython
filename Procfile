@@ -1,1 +1,1 @@
-web: gunicorn imgbasepython.wsgi -b 0.0.0.0:$PORT -w 10
+web: gunicorn locallibrary.wsgi --log-file -
