@@ -4,6 +4,7 @@ dj-database-url==0.5.0
 Django==2.0.5
 django-cors-headers==2.2.0
 djangorestframework==3.8.2
+gunicorn==19.8.1
 httpie==0.9.9
 idna==2.6
 pipenv==2018.5.18
