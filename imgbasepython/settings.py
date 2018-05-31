@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '50pe8&5-!5@w+bgwlkan4^g&@1*gjnr34zm_%wk6h8pw0$92h5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -150,6 +150,9 @@ STATICFILES_DIRS = (
     ('assets', 'app-root/imgbasepython/wsgi/openshift/static'),
 
     )
+
+
+STATICFILES_STORAGE='whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
