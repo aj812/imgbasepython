@@ -109,13 +109,25 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.postgresql',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'imgbase',
-        'USER': 'imgbaseuser',
-        'PASSWORD': '',
-        'HOST': '0.0.0.0',
+        'NAME': 'd3g3nh8qitil43',
+        'USER': 'lsejwmrfvpkxqy',
+        'PASSWORD': 'd84e59cfa41a615171df635c39c3cc31a99fb4f68ea2f579a83b90e0b7788cd4',
+        'HOST': 'ec2-54-225-200-15.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         # 'ENGINE': 'django.db.backends.postgresql',
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'imgbase',
+#         'USER': 'imgbaseuser',
+#         'PASSWORD': '',
+#         'HOST': '0.0.0.0',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
