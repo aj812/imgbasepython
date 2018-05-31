@@ -36,8 +36,8 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-import dj-database-url
-
+db_from_env = dj_database_url.config()
+DATABASES[‘default’].update(db_from_env)
 
 REST_FRAMEWORK = {
 
@@ -158,9 +158,9 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+# import dj-database-url
 
-db_from_env = dj_database_url.config()
-DATABASES[‘default’].update(db_from_env)
+
 
 # # Heroku: Update database configuration from $DATABASE_URL.
 # import dj_database_url
