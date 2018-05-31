@@ -10,9 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+import dj-database-url
+
 import os
 
-import dj-database-url # add this to the top of your file
 
 # db_from_env = dj_database_url.config()
 #  DATABASES[‘default’].update(db_from_env)
