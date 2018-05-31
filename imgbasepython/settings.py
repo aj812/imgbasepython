@@ -99,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'imgbase',
         'USER': 'imgbaseuser',
-        'PASSWORD': '',
+        'PASSWORD': 'password123',
         'HOST': '0.0.0.0',
         'PORT': '',
     }
