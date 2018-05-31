@@ -142,7 +142,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATIC_ROOT = "app-root/repo/wsgi/static"
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    ('assets', 'app-root/repo/wsgi/openshift/static'),
+
+    )
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
