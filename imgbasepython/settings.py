@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import dj-database-url
 
 import os
 
@@ -36,6 +35,9 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+
+import dj-database-url
+
 
 REST_FRAMEWORK = {
 
