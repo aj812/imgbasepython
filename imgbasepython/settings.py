@@ -37,9 +37,9 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 # Heroku: Update database configuration from $DATABASE_URL.
-# import dj_database_url
-# db_from_env = dj_database_url.config()
-# DATABASES['default'].update(db_from_env)
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 REST_FRAMEWORK = {
@@ -111,7 +111,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'imgbase',
         'USER': 'imgbaseuser',
-        'PASSWORD': 'password123',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
