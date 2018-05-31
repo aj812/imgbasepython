@@ -19,11 +19,5 @@ class MediaCreateAPIView(ListCreateAPIView):
 class MediaDetailAPIView(RetrieveUpdateDestroyAPIView):
     serializer_class = MediaSerializer
     queryset = Media.objects.all()
-    permission_classes = (IsAuthenticated, UserIsOwnerMedia)
-
-
-# from django.shortcuts import render
-# from django.http import HttpResponse
-#
-# def index(request):
-#     return HttpResponse("/api/media index")
+    ## * require Auth
+    # permission_classes = (IsAuthenticated, UserIsOwnerMedia)

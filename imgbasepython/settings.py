@@ -43,9 +43,13 @@ DATABASES = { 'default': dj_database_url.config() }
 
 REST_FRAMEWORK = {
 
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+    ],
+
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+      'rest_framework.permissions.AllowAny',
+      ]
 
     # 'DEFAULT_AUTHENTICATION_CLASSES': [],
     # 'DEFAULT_PERMISSION_CLASSES': [],
@@ -106,29 +110,31 @@ WSGI_APPLICATION = 'imgbasepython.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 
-# NEEDS TO BE UPDATED FROM HEROKU HARD-CODED TEST
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd3g3nh8qitil43',
-        'USER': 'lsejwmrfvpkxqy',
-        'PASSWORD': 'd84e59cfa41a615171df635c39c3cc31a99fb4f68ea2f579a83b90e0b7788cd4',
-        'HOST': 'ec2-54-225-200-15.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
-}
-
+# PROD --- NEEDS TO BE UPDATED FROM HEROKU TEST
 # DATABASES = {
 #     'default': {
-#         # 'ENGINE': 'django.db.backends.postgresql',
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'imgbase',
-#         'USER': 'imgbaseuser',
-#         'PASSWORD': '',
-#         'HOST': '0.0.0.0',
+#         'NAME': 'd3g3nh8qitil43',
+#         'USER': 'lsejwmrfvpkxqy',
+#         'PASSWORD': 'd84e59cfa41a615171df635c39c3cc31a99fb4f68ea2f579a83b90e0b7788cd4',
+#         'HOST': 'ec2-54-225-200-15.compute-1.amazonaws.com',
 #         'PORT': '5432',
 #     }
 # }
+
+
+# DEV
+DATABASES = {
+    'default': {
+        # 'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'imgbase',
+        'USER': 'imgbaseuser',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 
 # Password validation
