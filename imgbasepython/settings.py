@@ -105,9 +105,10 @@ WSGI_APPLICATION = 'imgbasepython.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+
+# NEEDS TO BE UPDATED FROM HEROKU HARD-CODED TEST
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd3g3nh8qitil43',
         'USER': 'lsejwmrfvpkxqy',
