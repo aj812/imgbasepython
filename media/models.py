@@ -10,8 +10,9 @@ from django.utils.translation import ugettext_lazy as _
 
 class Media(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    mediatype = models.CharField(_("MediaType"), max_length=255)
+    mediatype = models.CharField(_("Media Type"), max_length=255)
     path = models.CharField(_("Path"), max_length=255)
+    uri = models.CharField(_("uri"), max_length=255)
     tags = ArrayField(ArrayField(models.CharField(max_length = 5000)))
     date_created = models.DateTimeField(_("Date Created"), auto_now_add=True)
 
