@@ -15,20 +15,20 @@ from media.serializers import MediaSerializer
 
 
 def SearchImgsView(request):
-    testarr = ['blah', 'fifth']
-    images = Media.objects.all()
-    overlapfilter = Media.objects.all().filter(tags__overlap=testarr)
+    # Array Querystring: http://localhost:8000/api/media/search/?tags[]=TAGONEHERE&tags[]=TAGTWOHERE
+    query = request.GET.getlist('tags[]')
+    queryarr = query
+    # testarr = ['blah', 'fifth']
+    # images = Media.objects.all()
+    overlapfilter = Media.objects.all().filter(tags__overlap=queryarr)
     context = {
-        "images": images,
         "overlapfilter": overlapfilter,
-        "terms": testarr,
+        "terms": queryarr,
     }
-    imgs_serialized = serializers.serialize('json', images)
-    # return render(request, 'media/media_list.html', { 'terms': testarr, 'overlapfilter': overlapfilter, 'images': images })
+    imgs_serialized = serializers.serialize('json', overlapfilter)
+    # return render(request, 'media/media_list.html', { 'terms': queryarr, 'overlapfilter': overlapfilter, 'images': images })
     # return JsonResponse({ 'id': first.id, 'filename': first.filename, 'mediatype': first.mediatype, 'tags': first.tags, 'uri': first.uri })
     return HttpResponse(imgs_serialized, content_type='application/json')
-
-
 
 class MediaCreateAPIView(ListCreateAPIView):
     serializer_class = MediaSerializer
