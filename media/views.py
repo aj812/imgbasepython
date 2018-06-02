@@ -2,6 +2,8 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.permissions import IsAuthenticated
 
 from django.http import HttpResponse
+from django.shortcuts import render
+import simplejson as json
 
 from media.models import Media
 from media.permissions import UserIsOwnerMedia
@@ -10,8 +12,19 @@ from media.serializers import MediaSerializer
 
 
 def SearchImgsView(request):
-    html = "<html><body> Hello </body></html>"
-    return HttpResponse(html)
+    images = Media.objects.all()
+    first = images[0]
+    context = {
+        "images": images,
+    }
+    jsontest = json.dumps({ 'id': first.id, 'filename': first.filename, 'mediatype': first.mediatype, 'tags': first.tags, 'uri': first.uri })
+    # return HttpResponse(first.uri)
+    return render(request, 'media/media_list.html', { 'images': images, 'jsontest': jsontest })
+
+# def SearchImgsView(request):
+#     html = "<html><body> Hello </body></html>"
+#     return HttpResponse(html)
+
 
 class MediaCreateAPIView(ListCreateAPIView):
     serializer_class = MediaSerializer

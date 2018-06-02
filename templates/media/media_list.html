@@ -1,0 +1,19 @@
+
+<p> <strong> jsontest: </strong> </p>
+{{jsontest}}
+
+
+<h4> QuerySet </h4>
+{% for image in images %}
+
+<p>
+id: {{image.id}} <br/>
+filename: {{image.filename}} <br/>
+uri: {{image.uri}} <br/>
+mediatype: {{image.mediatype}} <br/>
+tags: {{image.tags}} <br/>
+
+</p>
+
+
+{% endfor %}

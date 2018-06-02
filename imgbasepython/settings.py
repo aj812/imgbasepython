@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
+# SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
+
 
 # import dj_database_url
 # db_from_env = dj_database_url.config(conn_max_age=500)
@@ -90,7 +92,7 @@ ROOT_URLCONF = 'imgbasepython.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,6 +106,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'imgbasepython.wsgi.application'
+
+
 
 
 # Database
