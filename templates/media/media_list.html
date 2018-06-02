@@ -1,9 +1,9 @@
 
-<p> <strong> jsontest: </strong> </p>
-{{jsontest}}
+<p> <strong> jsonres: </strong> </p>
+{{ jsonres }}
 
 
-<h4> QuerySet </h4>
+<h1> All: </h1>
 {% for image in images %}
 
 <p>
@@ -15,5 +15,19 @@ tags: {{image.tags}} <br/>
 
 </p>
 
+{% endfor %}
+
+
+<h1> Overlap Filter query ({{terms}}): </h1>
+
+{% for queryres in overlapfilter %}
+
+<p>
+  id: {{queryres.id}} <br/>
+  filename: {{queryres.filename}} <br/>
+  uri: {{queryres.uri}} <br/>
+  mediatype: {{queryres.mediatype}} <br/>
+  tags: {{queryres.tags}} <br/>
+</p>
 
 {% endfor %}
