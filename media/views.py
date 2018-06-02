@@ -5,6 +5,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import simplejson as json
 
+from django.http import JsonResponse
+from django.core import serializers
+
 from media.models import Media
 from media.permissions import UserIsOwnerMedia
 from media.serializers import MediaSerializer
@@ -15,19 +18,16 @@ def SearchImgsView(request):
     testarr = ['blah', 'fifth']
     images = Media.objects.all()
     overlapfilter = Media.objects.all().filter(tags__overlap=testarr)
-    first = images[0]
     context = {
         "images": images,
         "overlapfilter": overlapfilter,
         "terms": testarr,
     }
-    jsonres = json.dumps({ 'id': first.id, 'filename': first.filename, 'mediatype': first.mediatype, 'tags': first.tags, 'uri': first.uri })
-    # return HttpResponse(first.uri)
-    return render(request, 'media/media_list.html', { 'terms': testarr, 'overlapfilter': overlapfilter, 'images': images, 'jsonres': jsonres })
+    imgs_serialized = serializers.serialize('json', images)
+    # return render(request, 'media/media_list.html', { 'terms': testarr, 'overlapfilter': overlapfilter, 'images': images })
+    # return JsonResponse({ 'id': first.id, 'filename': first.filename, 'mediatype': first.mediatype, 'tags': first.tags, 'uri': first.uri })
+    return HttpResponse(imgs_serialized, content_type='application/json')
 
-# def SearchImgsView(request):
-#     html = "<html><body> Hello </body></html>"
-#     return HttpResponse(html)
 
 
 class MediaCreateAPIView(ListCreateAPIView):
