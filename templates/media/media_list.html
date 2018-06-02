@@ -3,21 +3,6 @@
 {{ jsonres }}
 
 
-<h1> All: </h1>
-{% for image in images %}
-
-<p>
-id: {{image.id}} <br/>
-filename: {{image.filename}} <br/>
-uri: {{image.uri}} <br/>
-mediatype: {{image.mediatype}} <br/>
-tags: {{image.tags}} <br/>
-
-</p>
-
-{% endfor %}
-
-
 <h1> Overlap Filter query ({{terms}}): </h1>
 
 {% for queryres in overlapfilter %}
@@ -28,6 +13,23 @@ tags: {{image.tags}} <br/>
   uri: {{queryres.uri}} <br/>
   mediatype: {{queryres.mediatype}} <br/>
   tags: {{queryres.tags}} <br/>
+</p>
+
+{% endfor %}
+
+
+
+
+<h1> All: </h1>
+{% for image in images %}
+
+<p>
+id: {{image.id}} <br/>
+filename: {{image.filename}} <br/>
+uri: {{image.uri}} <br/>
+mediatype: {{image.mediatype}} <br/>
+tags: {{image.tags}} <br/>
+
 </p>
 
 {% endfor %}
