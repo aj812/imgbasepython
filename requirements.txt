@@ -4,12 +4,14 @@ dj-database-url==0.5.0
 Django==2.0.5
 django-cors-headers==2.2.0
 djangorestframework==3.8.2
+djangorestframework-simplejwt==3.2.3
 gunicorn==19.8.1
 httpie==0.9.9
 idna==2.6
 pipenv==2018.5.18
 psycopg2==2.7.4
 Pygments==2.2.0
+PyJWT==1.6.4
 pytz==2018.4
 requests==2.18.4
 simplejson==3.15.0

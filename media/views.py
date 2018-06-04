@@ -15,16 +15,15 @@ from media.serializers import MediaSerializer
 
 
 def SearchImgsView(request):
-    # Array Querystring: http://localhost:8000/api/media/search/?tags[]=TAGONEHERE&tags[]=TAGTWOHERE
+    # Array Querystring example: http://localhost:8000/api/media/search/?tags[]=TAGONEHERE&tags[]=TAGTWOHERE
     query = request.GET.getlist('tags[]')
     queryarr = query
-    # testarr = ['blah', 'fifth']
     # images = Media.objects.all()
     overlapfilter = Media.objects.all().filter(tags__overlap=queryarr)
-    context = {
-        "overlapfilter": overlapfilter,
-        "terms": queryarr,
-    }
+    # context = {
+    #     "overlapfilter": overlapfilter,
+    #     "terms": queryarr,
+    # }
     imgs_serialized = serializers.serialize('json', overlapfilter)
     # return render(request, 'media/media_list.html', { 'terms': queryarr, 'overlapfilter': overlapfilter, 'images': images })
     # return JsonResponse({ 'id': first.id, 'filename': first.filename, 'mediatype': first.mediatype, 'tags': first.tags, 'uri': first.uri })
