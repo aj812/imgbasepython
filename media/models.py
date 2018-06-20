@@ -13,8 +13,7 @@ class Media(models.Model):
     filename = models.CharField(_("Filename"), max_length=255)
     mediatype = models.CharField(_("Media Type"), max_length=255)
     uri = models.CharField(_("uri"), max_length=255)
-    # tags = ArrayField(ArrayField(models.CharField(max_length = 5000)))
-    tags = ArrayField(models.CharField(max_length=5000))
+    tags = ArrayField(models.CharField(max_length=5000), null=True, blank=True)
     date_created = models.DateTimeField(_("Date Created"), auto_now_add=True)
 
     class Meta:

@@ -6,9 +6,11 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from django.views.generic import RedirectView
 
 api_urls = [
     url(r'^users/', include('users.urls', namespace='users')),
+    url(r'^media$', RedirectView.as_view(url = '/media/')),
     url(r'^media/', include('media.urls', namespace='media'))
 ]
 
