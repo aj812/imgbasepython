@@ -11,6 +11,11 @@ class UserRegistrationAPIView(CreateAPIView):
     permission_classes = ()
     serializer_class = UserRegistrationSerializer
 
+    def perform_create(self, serializer):
+        instance = serializer.save()
+        instance.set_password(instance.password)
+        instance.save()
+
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
